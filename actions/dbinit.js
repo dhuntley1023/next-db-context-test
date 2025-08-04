@@ -1,10 +1,10 @@
 'use server'
 
-import { sequelize, Account } from "@/lib/db";
+import { Account } from "@/lib/db";
 
 export async function initDb() {
   try {
-    await Account.initModel(sequelize);
+    await Account.initModel();
     await Account.sync({force: true});
     await Account.create({Id: 1, Name: "Accounts Payable" });
     return "DB initialized"
