@@ -1,5 +1,4 @@
 'use server'
-
 import { Account } from "@/lib/db";
 
 export default async function AccountSummary({id}) {

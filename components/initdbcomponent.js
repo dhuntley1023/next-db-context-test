@@ -1,14 +1,11 @@
 'use server'
 
-import { initDb } from "@/lib/db";
-import AccountSummary from "./accountsummary";
+import { initDb } from "@/actions/dbinit";
+import RedirectToHome from "./redirecttohome";
 
 export default async function InitDbComponent({ children }) {
-  return (
-    <div>
-        DB Initialization Attempted: <br/> {await initDb()}
-        <br/><br/>
-        { children }
-    </div>
-  )
+  const msg = await initDb();
+  return (<RedirectToHome/>);
+  
+  //redirect('/home'); <= This causes a scoped context refresh.
 }
