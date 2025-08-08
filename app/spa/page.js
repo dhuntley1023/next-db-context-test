@@ -2,9 +2,10 @@
 
 import { initDb } from "@/actions/dbinit";
 //import AccountSummary from "@/components/accountsummary";
-import AccountSummaryClient from "./accountsummaryclient" 
+//import AccountSummaryClient from "./accountsummaryclient" 
 import { useEffect, useState } from "react";
 //import { Account } from "@/lib/db";
+import AccountListClient from "@/components/accountlist-client";
 
 export default function SPA() {
 
@@ -27,7 +28,7 @@ const [message, setMessage] = useState('Loading...');
   return (<div>
             {isLoading ?
               <p>Loading...</p> 
-              : <AccountSummaryClient id='1'/>
+              : <AccountListClient idList={[1,2,3,4,5]}/>
             }
             </div>
   );

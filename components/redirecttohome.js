@@ -1,22 +1,26 @@
-'use client'
+'use client';
 
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import Link from "next/link";
 
-export default function RedirectToHome() {
-  // const router = useRouter();
+export default function RedirectToHome({auto}) {
+  const router = useRouter();
+  // Automatic redirection upon load
 
-  // useEffect(() => {
-  //   router.push('/home');
-  // }, []);
+  useEffect(() => {
+    if (auto) { 
+      router.push('/home'); }
+  }, []);
 
-  // return null;
-
-  return (
-    <div>
-      DB Initialized<br />
-      <Link href='/home'>Click to continue</Link>
-    </div>
-  );
+  if (auto) {
+    return null;
+  } else {
+    return (
+      <div>
+        DB Initialized<br />
+        <Link href='/home'>Click to continue</Link>
+      </div>
+    );
+  }
 }

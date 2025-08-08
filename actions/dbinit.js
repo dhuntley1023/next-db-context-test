@@ -7,6 +7,7 @@ export async function initDb() {
     await Account.initModel();
     await Account.sync({force: true});
     await Account.create({Id: 1, Name: "Accounts Payable" });
+    await Account.create({Id: 3, Name: "Checking" });
     return "DB initialized"
   } catch (error) {
     return `DB not initialized: ${error.message}`
